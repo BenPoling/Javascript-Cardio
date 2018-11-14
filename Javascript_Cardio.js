@@ -34,7 +34,7 @@ function reverseInt(int) {
   let splitStr = string.split('');
   let array = [];
   //loop over split num passing in numbers to empty array
-  for(i = 0; i < splitStr.length; i++) {
+  for(let i = 0; i < splitStr.length; i++) {
     if(splitStr[i] != '-') {
     array.push(Number(splitStr[i]));
     }
@@ -57,8 +57,26 @@ function capitalizeLetters(str) {}
   // Return the character that is most common in a string
   // ex. maxCharacter('javascript') == 'a'
 function maxCharacter(str) {
-
+  let obj = {};
+  let maxChar;
+  let maxCount = 0;
+  let splitStr = str.split('');
+  for(let i = 0; i < splitStr.length; i++) {
+      if(obj[splitStr[i]] === undefined) {
+          obj[splitStr[i]] = 0;
+      }
+      obj[splitStr[i]]++;
+  }
+  for(prop in obj) {
+      if(obj[prop] > maxCount) {
+          maxCount = obj[prop];
+          maxChar = prop;
+      }
+  }
+  return maxChar;
 }
+
+console.log('Max Character :', maxCharacter('javascript'));
   
   // CHALLENGE 6: FIZZBUZZ
   // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of 
@@ -69,7 +87,7 @@ function fizzBuzz() {
   //declare count
   let count = 0
   let string = '';
-  for(i = 1; i <= 100; i++) {
+  for(let i = 1; i <= 100; i++) {
       if(i % 3 === 0 && i % 5 === 0) {
         string += 'FizzBuzz ';
         count++;
