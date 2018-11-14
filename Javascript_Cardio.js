@@ -6,15 +6,23 @@ function reverseString(str) {
   return str.split('').reverse().join('');
 }
 
-console.log(reverseString('hello'));
+console.log('Reverse String :', reverseString('hello'));
   
   // CHALLENGE 2: VALIDATE A PALINDROME
   // Return true if palindrome and false if not
   // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
   
 function isPalindrome(str) {
-
+  //reverse str then check if it === str then output true or false
+  let reverseStr = str.split('').reverse().join('');
+  if(str === reverseStr) {
+      return true;
+  } else {
+      return false;
+  }
 }
+
+console.log('Palindrome check :', isPalindrome('madam'));
   
   // CHALLENGE 3: REVERSE AN INTEGER
   // Return an integer in reverse
@@ -66,7 +74,7 @@ function fizzBuzz() {
   return string;
 }
 
-console.log(fizzBuzz());
+console.log('FizzBuzz : ', fizzBuzz());
 
 
 
