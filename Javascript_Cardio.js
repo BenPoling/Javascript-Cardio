@@ -28,7 +28,25 @@ console.log('Palindrome check :', isPalindrome('madam'));
   // Return an integer in reverse
   // ex. reverseInt(521) === 125
   
-function reverseInt(int) {}
+function reverseInt(int) {
+  //split number
+  let string = int + '';
+  let splitStr = string.split('');
+  let array = [];
+  //loop over split num passing in numbers to empty array
+  for(i = 0; i < splitStr.length; i++) {
+    if(splitStr[i] != '-') {
+    array.push(Number(splitStr[i]));
+    }
+  }
+  array.reverse();
+  if(splitStr[0] === '-') {
+    array.unshift('-')
+  }
+  return array.join('');
+}
+
+console.log('Reverse Number :', reverseInt(-425));
   
   // CHALLENGE 4: CAPITALIZE LETTERS
   // Return a string with the first letter of every word capitalized
